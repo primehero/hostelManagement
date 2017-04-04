@@ -1,4 +1,7 @@
-
+button.invisible-bg {
+	background-color: rgba(255, 255, 255, 0);
+	border: none;
+}
 
 
 
@@ -10,5 +13,5 @@
 }
 
 li.list-group-item {
-	border-radius: 0px !important;	
+	border-radius: 0px !important;
 }
