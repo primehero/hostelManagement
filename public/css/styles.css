@@ -1,0 +1,14 @@
+
+
+
+
+
+/* BOOTSTRAP RESETS */
+
+.navbar.navbar-inverse {
+	border-radius: 0px;
+}
+
+li.list-group-item {
+	border-radius: 0px !important;	
+}
