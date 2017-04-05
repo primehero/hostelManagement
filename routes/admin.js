@@ -1,6 +1,8 @@
-var routes = require("express").Router();
+var routes 			= require("express").Router();
+var middleware 	= require("../middleware");
 
-routes.get("/", function(req, res) {
+
+routes.get("/", middleware.isLoggedIn, function(req, res) {
 	res.render("index");
 });
 

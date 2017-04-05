@@ -7,6 +7,10 @@ button.invisible-bg {
 
 
 /* BOOTSTRAP RESETS */
+.table th,
+.table td{
+	text-align: center;
+}
 
 .navbar.navbar-inverse {
 	border-radius: 0px;

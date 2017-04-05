@@ -36,7 +36,16 @@ routes.post("/", (req, res) => {
 	});
 });
 
-// 
+// EDIT route
+routes.get("/:id/edit", (req, res) => {
+	Category.findById(req.params.id, (err, foundCategory) => {
+		if (err) {
+			req.flash(err);
+			res.redirect("/category");
+		}
+		res.render("category/edit", { category : foundCategory });
+	});
+});
 
 
 // UPDATE route
@@ -45,8 +54,8 @@ routes.put("/:id", (req, res) => {
 		if (err)
 			req.flash('error', err);
 		else
-			req.flash('success', "Updated Category " + category.name);
-		res.redirect("/category/" + req.params.id);
+			req.flash('success', "Updated Category " + updatedCategory.name);
+		res.redirect("/category");
 	});
 });
 

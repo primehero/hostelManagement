@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+<% include ../partials/sidebar %>
+
+<div class="col-md-9">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Tenant Name</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tenants.forEach(function(tenant) { %>
+      <tr>
+        <td>
+          <%= tenant.name %>
+        </td>
+        <!-- SHOW -->
+        <td>
+          <a class="btn btn-primary" href="/tenant/<%= tenant._id %>">
+            Details
+          </a>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div><!-- ./col -->
+
+
+<% include ../partials/footer %>

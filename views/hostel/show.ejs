@@ -1,0 +1,52 @@
+<% include ../partials/header %>
+
+<% include ../partials/sidebar %>
+
+<div class="col-md-9">
+  <!--  USER DETAILS
+  ==================================================-->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Hostel Details</h3>
+    </div>
+    <div class="panel-body">
+
+      <p> Name: <%= hostel.name %> </p>
+      <p> Address: <%= hostel.address %> </p>
+      <p> Phone: <%= hostel.phone %> </p>
+      <p> Category: <%= hostel.category.name %> </p>
+      <p> Warden: <%= hostel.warden.name %> </p>
+      <p> Warden Phone: <%= hostel.warden.phone %> </p>
+      <p> Warden Address: <%= hostel.warden.address %> </p>
+      <p> Owner: <%= hostel._creator._username %> </p>
+
+      <br><br>
+      <a href="/room/new?hostel=<%= hostel._id %>"
+        class="btn btn-default">
+        Create Room
+      </a>
+      <a href="/room?hostel=<%= hostel._id %>"
+        class="btn btn-default">
+        See All Rooms
+      </a>
+
+      <br><br>
+      <br><br>
+
+
+      <!-- EDIT -->
+      <a href="/hostel/<%= hostel._id %>/edit" class="btn btn-warning btn-xs">
+          Edit
+      </a>
+      <!-- DELETE -->
+      <form action="/hostel/<%= hostel._id %>?_method=DELETE" method="post"
+          style="display: inline-block">
+        <input type="submit" value="Delete" class="btn btn-danger btn-xs">
+      </form>
+
+    </div>
+  </div>
+
+</div><!-- ./col -->
+
+<% include ../partials/footer %>

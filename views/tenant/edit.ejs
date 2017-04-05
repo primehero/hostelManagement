@@ -1,0 +1,49 @@
+<% include ../partials/header %>
+
+<% include ../partials/sidebar %>
+
+<div class="col-md-9">
+  <!-- EDIT TENANT
+  ==================================================-->
+  <form method="POST" action="/tenant/<%= tenant._id %>?_method=PUT">
+    <legend>Edit Tenant</legend>
+    <div class="row">
+      <div class="col-md-6">
+
+        <!-- Hostel Mongoose Id -->
+        <input name="room" type="hidden" value="<%= tenant.room %>">
+
+        <div class="form-group">
+          <input id="name" name="name" placeholder="Name"
+            class="form-control" value="<%= tenant.name %>">
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+            <input id="adhaar" name="adhaar" type="text"
+                placeholder="Adhaar Number" class="form-control"
+                value="<%= tenant.adhaar %>">
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+            <input id="addess" name="address" type="text"
+                placeholder="Address" class="form-control"
+                value="<%= tenant.address %>">
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+             <input id="phone" name="phone" type="text"
+                placeholder="Phone Number" class="form-control"
+                value="<%= tenant.phone %>">
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+           <input type="submit" name="submit" value="submit" class="btn btn-primary">
+        </div><!-- ./form-group -->
+
+      </div><!-- ./col -->
+    </div><!-- ./row -->
+  </form><!-- ./new hostel form -->
+
+</div><!-- ./col -->
+
+<% include ../partials/footer %>

@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+
+<% include ../partials/sidebar %>
+
+<div class="col-md-9">
+  <!--  USER DETAILS
+  ==================================================-->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">User Details</h3>
+    </div>
+    <div class="panel-body">
+      <p>
+        Username: <%= user.username %>
+      </p>
+      <p>
+        Permissions: <%= (user.admin) ? "Admin" : "Nomal"; %>
+      </p>
+
+      <br><br>
+      <br><br>
+      <!-- EDIT -->
+      <!-- <a href="/user/<%= user._id %>/edit" class="btn btn-warning btn-xs">
+          Edit
+      </a> -->
+      <!-- DELETE -->
+      <form action="/user/<%= user._id %>?_method=DELETE" method="post"
+          style="display: inline-block">
+        <input type="submit" value="Delete" class="btn btn-danger btn-xs">
+      </form>
+    </div>
+  </div>
+
+</div><!-- ./col -->
+
+<% include ../partials/footer %>

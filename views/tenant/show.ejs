@@ -1,0 +1,37 @@
+<% include ../partials/header %>
+
+<% include ../partials/sidebar %>
+
+<div class="col-md-9">
+  <!--  ROOM DETAILS
+  ==================================================-->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Tenant Details</h3>
+    </div>
+    <div class="panel-body">
+
+      <p> Name: <%= tenant.name %> </p>
+      <p> Adhaar Number: <%= tenant.adhaar %> </p>
+      <p> Tenant Address: <%= tenant.address %> </p>
+      <p>
+        Tenant Phone: <%= tenant.phone %>
+      </p>
+      <br><br>
+
+      <!-- EDIT -->
+      <a href="/tenant/<%= tenant._id %>/edit" class="btn btn-warning btn-xs">
+          Edit
+      </a>
+      <!-- DELETE -->
+      <form action="/tenant/<%= tenant._id %>?_method=DELETE" method="post"
+          style="display: inline-block">
+        <input type="submit" value="Delete" class="btn btn-danger btn-xs">
+      </form>
+
+    </div>
+  </div>
+
+</div><!-- ./col -->
+
+<% include ../partials/footer %>

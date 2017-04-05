@@ -1,24 +1,23 @@
-var express 		= require("express");
-	app 			= express(),
-	mongoose 		= require("mongoose"),
-	bodyParser 		= require("body-parser"),
-	middleware 		= require("./middleware"),
-	methodOverride 	= require("method-override"),
-	cookieParser 	= require("cookie-parser"),
-	flash 			= require("connect-flash"),
-	session 		= require("express-session"),
-	passport    	= require("passport"),
-	LocalStrategy 	= require("passport-local");
+var express 				= require("express");
+		app 						= express(),
+		mongoose 				= require("mongoose"),
+		bodyParser 			= require("body-parser"),
+		middleware 			= require("./middleware"),
+		methodOverride 	= require("method-override"),
+		cookieParser 		= require("cookie-parser"),
+		flash 					= require("connect-flash"),
+		session 				= require("express-session"),
+		passport    		= require("passport"),
+		LocalStrategy 	= require("passport-local");
 
 
-var User 		= require("./models/user");
+var User = require("./models/user");
 
 
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(middleware.sendResponse);
 app.use(methodOverride("_method"));
 
 app.use(cookieParser('bsjbddbcu'));
@@ -42,30 +41,29 @@ app.use((req, res, next) => {
 	next();
 });
 
-
 mongoose.connect("mongodb://localhost/hostel_app_test");
 
 /**
  * ROUTES
  * =====
  */
-var indexRoutes 	= require("./routes/index");
+var indexRoutes 		= require("./routes/index");
 var categoryRoutes 	= require("./routes/category");
-var hostelRoutes 	= require("./routes/hostel");
-var roomRoutes 		= require("./routes/room");
-var tenantRoutes 	= require("./routes/tenant");
+var hostelRoutes 		= require("./routes/hostel");
+var roomRoutes 			= require("./routes/room");
+var tenantRoutes 		= require("./routes/tenant");
 var paymentRoutes 	= require("./routes/payment");
-var adminRoutes		= require("./routes/admin");
+var adminRoutes			= require("./routes/admin");
+var userRoutes			= require("./routes/user");
 
-app.use("/", 			indexRoutes);
+app.use("/", 					indexRoutes);
 app.use("/category", 	categoryRoutes);
 app.use("/hostel", 		hostelRoutes);
-app.use("/room", 		roomRoutes);
+app.use("/room", 			roomRoutes);
 app.use("/tenant", 		tenantRoutes);
 app.use("/payment", 	paymentRoutes);
 app.use("/admin",			adminRoutes);
-
-
+app.use("/user",			userRoutes);
 
 
 // Keep listening

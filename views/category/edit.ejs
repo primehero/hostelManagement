@@ -5,14 +5,14 @@
 <div class="col-md-9">
   <!-- NEW CATEGORY FORM
   ==================================================-->
-  <form id="newCategory" method="POST" action="/category">
-    <legend>Create New Category</legend>
+  <form id="newCategory" method="POST" action="/category/<%= category._id %>?_method=PUT">
+    <legend>Edit <%= category.name %> Category</legend>
 
     <div class="row">
       <div class="col-md-4">
         <div class="form-group">
           <input id="name" name="name" type="text" placeholder="Name"
-              class="form-control input-md">
+              class="form-control input-md" value="<%= category.name %>">
         </div><!-- ./form-group -->
       </div><!-- ./col -->
       <div class="form-group">
@@ -20,8 +20,9 @@
           class="btn btn-primary">
       </div><!-- ./form-group -->
     </div><!-- ./row -->
-    
+
   </form><!-- ./new category form -->
 </div><!-- ./col -->
+
 
 <% include ../partials/footer %>

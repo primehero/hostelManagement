@@ -1,0 +1,50 @@
+<% include ../partials/header %>
+
+<% include ../partials/sidebar %>
+
+<div class="col-md-9">
+  <!-- NEW HOSTEL ROOM
+  ==================================================-->
+  <form method="POST" action="/room/<%= room._id %>?_method=PUT">
+    <legend>Create New Room</legend>
+    <div class="row">
+      <div class="col-md-6">
+
+        <!-- Hostel Mongoose Id -->
+        <input name="hostel" type="hidden" value="<%= room.hostel %>">
+
+        <div class="form-group">
+          <input id="floor" name="floor" placeholder="Floor Name"
+            class="form-control" value="<%= room.floor %>">
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+            <input id="roomNumber" name="roomNumber" type="text"
+                placeholder="Room Number" class="form-control"
+                value="<%= room.roomNumber %>">
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+            <input id="numBeds" name="numBeds" type="text"
+                placeholder="Number of beds" class="form-control"
+                value="<%= room.numBeds %>">
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+             <input id="cost" name="cost" type="text"
+                placeholder="Cost Per Person" class="form-control"
+                value="<%= room.cost %>">
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+         <input type="submit" name="submit" value="submit"
+           class="btn btn-primary">
+        </div><!-- ./form-group -->
+
+      </div><!-- ./col -->
+    </div><!-- ./row -->
+  </form><!-- ./new hostel form -->
+
+</div><!-- ./col -->
+
+<% include ../partials/footer %>

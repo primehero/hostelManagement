@@ -16,8 +16,9 @@
 
 
 ### Rooms
-1. Admin / Normal User should be able to create rooms.
-2. When we create rooms a drop down should appear denoting all hostels that are created for this owner.
+1. Some one only can get rooms according to the hostel.
+2. Hostel id will be sent as the req.query.hostel
+3. A method on rooms will be called that gets the required rooms of the hostel
 
 
 
@@ -37,8 +38,8 @@
 
 
 ### User
-1. User model should contain username and password and all the stuff according to yelp camp refactored and something called level, that tells if a user is an admin or not.
-2.
+1. User model should contain username and password and all the stuff according to yelp camp refactored and something called admin, this field is false for every single one of them except admin.
+2. Admin will be able to create more users.
 
 
 ### Admin

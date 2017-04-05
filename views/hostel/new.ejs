@@ -1,0 +1,74 @@
+<% include ../partials/header %>
+
+<% include ../partials/sidebar %>
+
+<div class="col-md-9">
+  <!-- NEW HOSTEL FORM
+  ==================================================-->
+  <form method="POST" action="/hostel">
+    <legend>Create New Hostel</legend>
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="form-group">
+            <input id="name" name="name" type="text"
+                placeholder="Name" class="form-control input-md">
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+          <select id="category" name="category" class="form-control">
+            <% for (let i = 0; i < categories.length; ++i) { %>
+                <option value="<%= categories[i]._id %>">
+                  <%= categories[i].name %>
+                </option>
+            <% } %>
+          </select>
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+            <textarea id="name" name="address" placeholder="Address"
+              class="form-control input-md"></textarea>
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+            <input id="phoneNumber" name="phone" type="text"
+                placeholder="PhoneNumber" class="form-control">
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+            <input id="Name" name="warden[name]" type="text"
+                placeholder="Warden Name" class="form-control">
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+            <textarea id="Address" name="warden[address]" type="text"
+                placeholder="Warden Address " class="form-control"></textarea>
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+            <input id="PhoneNumber" name="warden[phone]" type="text"
+                placeholder="Warden PhoneNumber" class="form-control">
+        </div><!-- ./form-control -->
+
+        <!-- Select Basic -->        
+        <div class="form-group">
+            <select id="ownerNames" name="owner" class="form-control">
+              <% for (let j = 0; j < users.length; ++j) { %>
+                <option value="<%= users[j]._id %>">
+                  <%= users[j].username %>
+                </option>
+              <% } %>
+            </select>
+        </div><!-- ./form-group -->
+
+        <div class="form-group">
+         <input type="submit" name="submit" value="submit" class="btn btn-primary">
+        </div><!-- ./form-group -->
+
+      </div><!-- ./col -->
+    </div><!-- ./row -->
+  </form><!-- ./new hostel form -->
+
+</div><!-- ./col -->
+
+<% include ../partials/footer %>

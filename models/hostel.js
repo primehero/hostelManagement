@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var hostelSchema = 
+var hostelSchema =
 mongoose.Schema({
 	name: String,
 	category: {
@@ -18,7 +18,7 @@ mongoose.Schema({
 	_creator: {
 		_id: {
 			type: 	mongoose.Schema.Types.ObjectId,
-        	ref: 	"User"	
+    	ref: 	"User"	
 		},
 		_username: String
 	}
